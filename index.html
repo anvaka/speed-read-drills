@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Drills to expand eye span." />
+  <meta property="og:description" content="Inspired by the 'Triple Your Reading Speed' book, I made this page to expand eye span and practice more." />
+  <meta name="viewport" content="width=device-width">
+  <title>Speed Reading Drills</title>
+  
+  <style type="text/css" media="screen">
+    .test {
+  width: 3in;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: sans-serif;
+  margin-top: 42px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row span {
+  text-align: center;
+  flex: 1;
+}
+.controls {
+  position: absolute;
+  bottom: 12px;
+}
+.controls a {
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  margin: 0 8px;
+}
+.learn-more {
+  font-size: 12px;
+}
+  </style>
+</head>
+<body>
+    <div class='test'></div>
+    <div class="controls">
+      <a href="#drill=a">Drill A</a>
+      <a href="#drill=b">Drill B</a>
+      <a href="#drill=c">Drill C</a>
+      <a href="#drill=d">Drill D</a>
+      <a href="#drill=e">Drill E</a>
+      <a href="http://github.com/anvaka/speed-read-drills" class='learn-more'>Learn more</a>
+    </div>
+    <script charset="utf-8">
+
+window.addEventListener('hashchange', parseDrill);
+
+var abc = 'ABCDEFGHIJKLMOPQRSTUVWXYZ';
+var testEl = document.querySelector('.test');
+ 
+function printRows(colCount, triple) {
+  var rowsCount = 20; 
+  var rows = [];
+  for (var j = 0; j < rowsCount; ++j) {
+    var col = []
+    for (var i = 0; i < colCount; ++i) {
+      var l = pickLetter();
+      if (triple && i === Math.floor(colCount/2)) l += pickLetter() + pickLetter();
+      col.push(`<span>${l}</span>`);
+    }  
+    rows.push(`<div class='row'>${col.join('')}</div>`);
+  }
+  return rows.join('\n');
+}
+
+var drills = [
+  {name: 'drill=a', callback: drillA},
+  {name: 'drill=b', callback: drillB},
+  {name: 'drill=c', callback: drillC},
+  {name: 'drill=d', callback: drillD},
+  {name: 'drill=e', callback: drillE},
+]
+
+parseDrill();
+
+function drillE() {
+  testEl.style.width = '3.75in'
+  testEl.innerHTML = printRows(7, true);
+}
+
+function drillA() {
+  testEl.style.width = '1.75in'
+  testEl.innerHTML = printRows(3, false);
+}
+function drillB() {
+  testEl.style.width = '1.75in'
+    testEl.innerHTML = printRows(3, true);
+}
+function drillC() {
+  testEl.style.width = '3in'
+  testEl.innerHTML = printRows(5, false);
+}
+function drillD() {
+  testEl.style.width = '3in'
+  testEl.innerHTML = printRows(5, true);
+}
+
+function parseDrill() {
+   var hash = window.location.hash;
+   if (!hash) hash = 'drill=a';
+
+   for (var i = 0; i < drills.length; ++i) {
+      var drillCase = drills[i];
+      if (hash.indexOf(drillCase.name) > -1) {
+        drillCase.callback();
+        return;
+      }
+  }
+  drillA();
+}
+
+
+
+function pickLetter() {
+  var idx = Math.round(Math.random() * (abc.length - 1));
+  return abc[idx];
+}
+</script>
+</body>
+</html>
