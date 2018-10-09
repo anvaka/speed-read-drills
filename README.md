@@ -5,7 +5,13 @@ by Wade E. Cutler, hoping it helps me improve.
 
 It's too early to say if it helps yet, but I'm practicing this exercise regularly.
 
-In every drill you need focus your eyes on the _center_ letter of each line.
+![demo](https://i.imgur.com/4tbfFQW.png)
+
+Note: the website has physical dimensions that matches those that I found in the book. The screenshot above is not representative as it may be scaled on your device.
+
+## How to use this?
+
+In [every drill](https://anvaka.github.io/speed-read-drills/) you need focus your eyes on the _center_ letter of each line.
 Then, without eye movement either to the left or right, read aloud or silently vocalize 
 each letter in this order: _center_ letter, _left_ letter, _right-letter.
 
@@ -18,6 +24,4 @@ center, immediate left, immediate right, far left, far right.
 
 After Drill B is master, go on to Drill C, D, and then E.
 
-
-Read the book to learn more useful tips, and how these drills can help!
-
+[Read the book](https://www.amazon.com/Triple-Your-Reading-Speed-4th/dp/0743475763) to learn more useful tips. Please let me know if this method worked for you! I'm eager to learn
